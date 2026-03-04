@@ -1,0 +1,41 @@
+data:
+  batch_size: 4
+  eval_dir: ./src/data
+  extensions:
+  - .mp4
+  - .avi
+  - .mov
+  - .mkv
+  image_size: 224
+  num_frames: 8
+  num_workers: 0
+  random_clip_eval: true
+  sampling_rate: 1
+  train_dir: ./src/data
+device: cuda
+inference:
+  output_dir: ./outputs
+  run_id: null
+  topk:
+  - 1
+  - 5
+  write_predictions: true
+model:
+  attention_dropout: 0.1
+  custom_head_hidden_dim: 2048
+  dropout: 0.1
+  freeze_backbone: false
+  num_classes: null
+  pretrained_name: facebook/timesformer-base-finetuned-k400
+  use_custom_head: true
+seed: 42
+training:
+  enabled: true
+  epochs: 15
+  grad_clip_norm: 1.0
+  lr: 0.0001
+  mixed_precision: true
+  test_ratio: 0.1
+  val_every: 1
+  val_ratio: 0.1
+  weight_decay: 0.0
